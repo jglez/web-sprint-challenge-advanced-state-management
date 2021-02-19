@@ -1,3 +1,4 @@
+import { FETCH_SMURFS_LOADING, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAIL, ADD_SMURF } from '../actions/index'
 
 export const initialState = {
   smurfs: [
@@ -9,11 +10,39 @@ export const initialState = {
       description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
     }
   ],
-  isLoading: false
+  isLoading: false,
+  error: ''
 }
 
 const smurfReducer = (state = initialState, action) => {
   switch (action.type) {
+
+    case (FETCH_SMURFS_LOADING):
+      return ({
+        ...state,
+        isLoading: true
+      })
+
+    case (FETCH_SMURFS_SUCCESS):
+      return ({
+        ...state,
+        isLoading: false,
+        smurfs: action.payload
+      })
+
+    case (FETCH_SMURFS_FAIL):
+      return ({
+        ...state,
+        error: action.payload,
+        isLoading: false
+      })
+
+    case (ADD_SMURF):
+      return ({
+        ...state,
+        smurfs: action.payload
+      })
+
     default:
       return state
   }
@@ -23,7 +52,7 @@ const smurfReducer = (state = initialState, action) => {
 //1. Adds the following state values into the initialState:
 //  - an array of smurfs ------------------------------------------------------ DONE
 //  - a boolean indicating if the app is loading ------------------------------ DONE
-//  - a string indicating a possible error message
+//  - a string indicating a possible error message ---------------------------- DONE
 
 //2. Add in the arguments needed to complete a standard reducer function.
 //3. Add in a reducer case to accomidate the start of a smurf fetch.
