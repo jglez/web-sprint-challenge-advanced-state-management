@@ -5,7 +5,7 @@ import "./index.css";
 import App from "./App";
 import logger from 'redux-logger'
 
-//1. Add in all necessary components and libary methods.
+//1. Add in all necessary components and libary methods. ------------------ DONE
 import smurfReducer from './reducers/index'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'

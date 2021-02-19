@@ -4,11 +4,10 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 
 const SmurfList = (props) => {
-  const isLoading = false;
 
   console.log('SmurfList props: ', props)
 
-  if (isLoading) {
+  if (props.isLoading) {
     return <h1>Loading...</h1>;
   }
 
@@ -25,8 +24,11 @@ const SmurfList = (props) => {
 //2. Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
 //3. Replace the static isLoading variable with the state loading variable.
 
-export default connect((state) => {
+const mapStateToProps = state => {
   return {
-    smurfs: state.smurfs
+    smurfs: state.smurfs,
+    isLoading: state.isLoading
   }
-})(SmurfList)
+}
+
+export default connect(mapStateToProps)(SmurfList)

@@ -8,7 +8,8 @@ export const initialState = {
       nickname: 'Pops',
       description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
     }
-  ]
+  ],
+  isLoading: false
 }
 
 const smurfReducer = (state = initialState, action) => {
@@ -20,8 +21,8 @@ const smurfReducer = (state = initialState, action) => {
 
 //Task List:
 //1. Adds the following state values into the initialState:
-//  - an array of smurfs
-//  - a boolean indicating if the app is loading
+//  - an array of smurfs ------------------------------------------------------ DONE
+//  - a boolean indicating if the app is loading ------------------------------ DONE
 //  - a string indicating a possible error message
 
 //2. Add in the arguments needed to complete a standard reducer function.
