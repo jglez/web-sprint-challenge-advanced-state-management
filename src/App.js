@@ -14,9 +14,10 @@ class App extends Component {
         <Header />
 
         <main>
-          <SmurfList/>
-          <AddForm/>
+          <SmurfList />
+          <AddForm />
         </main>
+
       </div>
     );
   }

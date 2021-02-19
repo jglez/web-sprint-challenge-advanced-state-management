@@ -4,17 +4,28 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
+//1. Add in all necessary components and libary methods.
+import smurfReducer from './reducers/index'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
 const { worker } = require('./mocks/browser');
 worker.start();
 
-const rootElement = document.getElementById("root");
+//2. Create a store that includes thunk and logger middleware support.
+const smurfStore = createStore(smurfReducer)
 
+console.log(smurfStore.getState())
+
+const rootElement = document.getElementById("root");
 ReactDOM.render(
-    <App />, 
-    rootElement
+  //3. Wrap the App component in a react-redux Provider element.
+  <Provider store={smurfStore}>
+    <App />
+  </Provider>,
+  rootElement
 );
 
-//Task List:
-//1. Add in all necessary components and libary methods.
-//2. Create a store that includes thunk and logger middleware support.
-//3. Wrap the App component in a react-redux Provider element.
+
+
+
